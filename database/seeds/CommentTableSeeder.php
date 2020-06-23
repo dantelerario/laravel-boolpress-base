@@ -17,6 +17,7 @@ class CommentTableSeeder extends Seeder
     {
         $comments = 10;
         $users = User::all();
+        $posts = Post::all();
 
         for ( $i = 0; $i < $comments; $i++ ) { 
             $newComment = new Comment();
