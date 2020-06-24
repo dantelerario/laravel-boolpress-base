@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('content')
+   @if (session('post-deleted'))
+      <div class="alert alert-success">
+         <p>Post deleted</p>
+      </div>
+   @endif
 
    <h1>Blog Archive</h1>
 
@@ -11,6 +16,7 @@
       <h3 class="author">Autore: {{ $post->user->name }}</hh3>
       <h4>Created: {{ $post->created_at }}, Last update: {{ $post->updated_at }}</h4>
       <p>{{ $post->body }}</p>
+      <a href="{{ route('posts.show', $post->slug) }}">Read More</a>
    </article>
 
       @if (!$loop->last)

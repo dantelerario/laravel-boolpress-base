@@ -10,7 +10,8 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'title',
-        'body'
+        'body',
+        'slug'
     ];
 
     /* DB relations */
@@ -18,5 +19,10 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    //tags 
+    public function tags() {
+        return $this->belongsToMany('App\Tag');
     }
 }
